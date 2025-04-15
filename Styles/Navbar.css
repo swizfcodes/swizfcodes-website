@@ -1,0 +1,18 @@
+.portfolio-navbar a{
+  font-size: 10px;
+  color: var(--text-color);
+  font-weight: 500;
+  margin-left: 20px;
+  transition: 0.5s;
+}
+
+.portfolio-navbar a:hover,
+.portfolio-navbar a.home-active{
+  color: var(--main-color);
+}
+
+#menu-icon{
+  font-size: 15px;
+  color: var(--text-color);
+  cursor: pointer;
+}

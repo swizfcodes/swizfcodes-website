@@ -1,0 +1,19 @@
+.my-portfolio-header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 10px 9%;
+  width: 100%;
+  background: var(--bg-color);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+}
+
+.portfolio-logo{
+  font-size: 25px;
+  color: var(--text-color);
+  font-weight: 600;
+}
