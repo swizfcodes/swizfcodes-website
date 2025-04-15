@@ -361,6 +361,7 @@ skills h2{
 
 .skills-column{
   flex: 1 1 480px;
+  width: 480px;
 }
 
 .my-skills{
