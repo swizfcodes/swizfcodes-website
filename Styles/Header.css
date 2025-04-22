@@ -16,6 +16,7 @@
   width: 250px;
   height: 60px;
   margin-left: 0;
+  padding-left: 0%;
 }
 
 nav{
@@ -25,5 +26,42 @@ nav{
   margin-right: 10px;
   flex: 1;
   max-width: 480px;
-  font-size: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .my-portfolio-header {
+    padding: 10px 5%;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .my-portfolio-header img {
+    width: 200px;
+    height: 60px;
+
+  }
+
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-right: 0;
+    width: 100%;
+    max-width: none;
+  }
+}
+
+/* Mobile phones */
+@media screen and (max-width: 480px) {
+  .my-portfolio-header {
+    padding: 10px 4%;
+  }
+
+  .my-portfolio-header img {
+    width: 150px;
+  }
+
+  nav {
+    gap: 8px;
+  }
 }

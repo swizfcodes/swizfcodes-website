@@ -1,5 +1,5 @@
 .portfolio-navbar a{
-  font-size: 10px;
+  font-size: 15px;
   color: var(--text-color);
   font-weight: 500;
   margin-left: 20px;
@@ -12,7 +12,47 @@
 }
 
 #menu-icon{
-  font-size: 15px;
+  font-size: 20px;
   color: var(--text-color);
   cursor: pointer;
+}
+
+/* Default desktop layout */
+.portfolio-navbar {
+  display: flex;
+  align-items: center;
+}
+
+/* Hide the menu icon by default (desktop) */
+#menu-icon {
+  display: none;
+}
+
+/* Mobile view: stack nav, show menu icon */
+@media screen and (max-width: 768px) {
+  .portfolio-navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: var(--second-bg-color);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px 5%;
+    /* Hide initially */
+  }
+
+  .portfolio-navbar a {
+    font-size: 14px;
+    margin: 10px 0;
+  }
+
+  #menu-icon {
+    display: block;
+  }
+
+  /* When menu is active (use JS to add this class) */
+  .portfolio-navbar.active {
+    display: flex;
+  }
 }

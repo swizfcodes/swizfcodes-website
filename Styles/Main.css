@@ -264,6 +264,8 @@ education h2{
 .work-experience{
   font-size: 40px;
   margin: 0 0 25px 32px;
+  color: transparent;
+  -webkit-text-stroke: .7px var(--text-color);
 }
 
 .education-box{
@@ -295,7 +297,6 @@ education h2{
   margin-bottom: 30px;
   z-index: 1;
   overflow: hidden;
-  
 }
 
 .content::before{
@@ -315,11 +316,11 @@ education h2{
 }
 
 .content h3{
-  font-size: 32px;
+  font-size: 38px;
 }
 
 .content p{
-  font-size: 13px;
+  font-size: 25px;
   padding-top: 8px;
 }
 
@@ -361,12 +362,14 @@ skills h2{
 
 .skills-column{
   flex: 1 1 480px;
-  width: 480px;
+  width: 680px;
 }
 
 .my-skills{
   font-size: 40px;
   margin: 0 0 25px;
+  color: transparent;
+  -webkit-text-stroke: .7px var(--text-color);
 }
 
 .skills-box .skills-content{
@@ -830,6 +833,7 @@ form .focus{
   margin: 0;
   font-size: 15px;
   font-weight: bold;
+  text-align: left;
 }
 
 .profile-info p {
@@ -936,4 +940,267 @@ form .focus{
   border-width: 8px;
   border-style: solid;
   border-color: transparent transparent white transparent;
+}
+
+@media (max-width: 1024px) {
+  html {
+    font-size: 90%;
+  }
+
+  section {
+    padding: 120px 5% 32px;
+  }
+
+  .home-content h1 {
+    font-size: 72px;
+  }
+
+  .home-content h3 {
+    font-size: 32px;
+  }
+
+  .btn-box a {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+
+  .about-img img {
+    width: 90%;
+  }
+
+  .education-box,
+  .skills-row {
+    flex-direction: column;
+  }
+
+  .education-column,
+  .skills-column {
+    width: 100%;
+  }
+
+  .content p{
+    font-size: 20px;
+  }
+
+  .skills-box {
+    padding: 16px;
+  }
+
+  .skills-content {
+    padding: 12px;
+  }
+
+  .contact form .input-box {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact form .input-box input {
+    width: 100%;
+  }
+
+  .contact form textarea {
+    height: 150px;
+  }
+}
+
+/* Small Screens (Phones and small tablets) */
+@media (max-width: 768px) {
+  html {
+    font-size: 55%;
+    overflow-x: hidden;
+  }
+
+  .home {
+    margin: 0 auto;
+    flex-direction: column;
+    text-align: start;
+    gap: 24px;
+    flex: 1;
+  }
+
+  section, aboutsection, education, skills, contact {
+    margin-top: 200px;
+  }
+
+  .home-img img {
+    width: 80%;
+  }
+
+  .home-content h1 {
+    font-size: 48px;
+  }
+
+  .home-content h3 {
+    font-size: 35px;
+  }
+
+  .home-content p {
+    display: flex;
+    flex: 1;
+    font-size: 20px;
+    text-align: start;
+    padding-right: 50px;
+  }
+
+  .btn-box.about, .btn-box.contact {
+    display: flex;
+    justify-content: start
+  }
+
+  .btn-box {
+    width: 60%;
+    gap: 16px;
+    height: auto;
+  }
+
+  .btn-box a {
+    width: 60%;
+    text-align: center;
+  }
+
+  .social-media {
+    justify-content: center;
+  }
+
+  .about {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-img img {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .about-content h2 {
+    font-size: 36px;
+  }
+
+  .skills-content .progress h3 {
+    font-size: 16px;
+  }
+
+  .tooltip {
+    display: none;
+  }
+
+  .contact form .btn-box {
+    flex-direction: column;
+  }
+
+  .tooltip-box {
+    top: 130%; /* tweak as needed */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .home-links.about {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+
+  .footer-text {
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+/* Extra Small Screens (Phones under 480px) */
+@media (max-width: 480px) {
+  html {
+    font-size: 55%;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden;
+  }
+
+  .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    font-size: 18px;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  section, aboutsection, education, skills, contact {
+    margin-top: 200px;
+  }
+
+  .home-content {
+    font-size: 18px;
+    text-align: center;
+    padding: 8px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .home-content h1,
+  .home-content h3 {
+    font-size: 24px;
+    word-wrap: break-word;
+  }
+
+  .home-content p {
+    font-size: 16px;
+    text-align: start;
+    padding-right: 50px;
+    word-wrap: break-word;
+  }
+
+  .about-content h2 {
+    font-size: 22px;
+    text-align: center;
+    word-wrap: break-word;
+  }
+
+  .btn-box a {
+    padding: 10px;
+  }
+
+  .contact form textarea,
+  .contact form input {
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .skills-box {
+    width: 100%;
+    padding: 12px;
+    box-sizing: border-box;
+  }
+
+  .tooltip-box {
+    top: 130%; /* tweak as needed */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .home-links.about {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .footer-text {
+    font-size: 12px;
+    text-align: center;
+    padding: 4px;
+  }
 }
