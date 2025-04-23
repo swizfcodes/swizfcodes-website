@@ -292,7 +292,8 @@ education h2{
 .content{
   position: relative;
   padding: 25px;
-  border: 2px solid var(--main-color);line-height: 1.5;
+  border: 2px solid var(--main-color);
+  line-height: 1.5;
   border-radius: 10px;
   margin-bottom: 30px;
   z-index: 1;
@@ -624,11 +625,11 @@ width: 100%;
 contact{
   display: flex;
   justify-content: center;
-   align-items: center;
-   flex-direction: column;
-   gap: 32px;
-   min-height: 100vh;
-   padding: 160px 9% 32px;
+  align-items: center;
+  flex-direction: column;
+  gap: 32px;
+  min-height: 100vh;
+  padding: 160px 9% 32px;
 }
 
 contact h2{
@@ -952,17 +953,29 @@ form .focus{
   }
 
   .home-content h1 {
-    font-size: 72px;
+    font-size: 52px;
   }
 
   .home-content h3 {
     font-size: 32px;
   }
 
-  .btn-box a {
-    font-size: 16px;
-    padding: 10px 20px;
+  .home-content p{
+    font-size: 20px;
+    max-width: 450px;
   }
+
+  .btn-box a {
+    font-size: 26px;
+    padding: 10px;
+  }
+
+  .btn-box {
+    width: 60%;
+    gap: 16px;
+    height: auto;
+  }
+
 
   .about-img img {
     width: 90%;
@@ -978,12 +991,24 @@ form .focus{
     width: 100%;
   }
 
+  .education-content::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -0.9rem;
+    width: 22px;
+    height: 22px;
+    background: var(--main-color);
+    border-radius: 50%;
+  }
+
   .content p{
     font-size: 20px;
   }
 
   .skills-box {
     padding: 16px;
+    width: 680px;
   }
 
   .skills-content {
@@ -1007,20 +1032,29 @@ form .focus{
 /* Small Screens (Phones and small tablets) */
 @media (max-width: 768px) {
   html {
-    font-size: 55%;
+    overflow-x: hidden;
+  }
+
+  body {
+    margin: 8px;
+    padding: 8px;
     overflow-x: hidden;
   }
 
   .home {
-    margin: 0 auto;
-    flex-direction: column;
+    display: flex;
+    padding: 8px;
+    font-size: 15px;
     text-align: start;
-    gap: 24px;
-    flex: 1;
+    width: 100%;
+    box-sizing: border-box;
   }
-
-  section, aboutsection, education, skills, contact {
-    margin-top: 200px;
+  section, 
+  aboutsection, 
+  education, 
+  skills, 
+  contact {
+   margin-top: 50px;
   }
 
   .home-img img {
@@ -1028,24 +1062,29 @@ form .focus{
   }
 
   .home-content h1 {
-    font-size: 48px;
+    font-size: 38px;
   }
 
   .home-content h3 {
-    font-size: 35px;
+    font-size: 25px;
   }
+
+ 
 
   .home-content p {
     display: flex;
     flex: 1;
-    font-size: 20px;
+    font-size: 17px;
     text-align: start;
     padding-right: 50px;
+    max-width: 380px;
+    line-height: 1.5;
   }
 
-  .btn-box.about, .btn-box.contact {
+  .btn-box.about, 
+  .btn-box.contact {
     display: flex;
-    justify-content: start
+    justify-content: start;
   }
 
   .btn-box {
@@ -1057,6 +1096,7 @@ form .focus{
   .btn-box a {
     width: 60%;
     text-align: center;
+    font-size: 17px;
   }
 
   .social-media {
@@ -1075,6 +1115,17 @@ form .focus{
 
   .about-content h2 {
     font-size: 36px;
+  }
+
+  .education-content::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -0.9rem;
+    width: 22px;
+    height: 22px;
+    background: var(--main-color);
+    border-radius: 50%;
   }
 
   .skills-content .progress h3 {
@@ -1103,18 +1154,12 @@ form .focus{
     align-items: flex-start;
     gap: 10px;
   }
-  
-
-  .footer-text {
-    text-align: center;
-    font-size: 14px;
-  }
 }
 
 /* Extra Small Screens (Phones under 480px) */
 @media (max-width: 480px) {
   html {
-    font-size: 55%;
+    font-size: 35%;
     overflow-x: hidden;
   }
 
@@ -1126,17 +1171,20 @@ form .focus{
 
   .home {
     display: flex;
-    flex-direction: column;
     align-items: center;
     padding: 8px;
-    font-size: 18px;
+    font-size: 15px;
     text-align: center;
     width: 100%;
     box-sizing: border-box;
   }
 
-  section, aboutsection, education, skills, contact {
-    margin-top: 200px;
+  section, 
+  aboutsection, 
+  education, 
+  skills, 
+  contact {
+    margin-top: 50px;
   }
 
   .home-content {
@@ -1147,10 +1195,16 @@ form .focus{
     box-sizing: border-box;
   }
 
-  .home-content h1,
-  .home-content h3 {
-    font-size: 24px;
+  .home-content h1 {
+    font-size: 35px;
     word-wrap: break-word;
+    text-align: start;
+  }
+
+  .home-content h3{
+    font-size: 25px;
+    word-wrap: break-word;
+    text-align: start;
   }
 
   .home-content p {
@@ -1168,6 +1222,70 @@ form .focus{
 
   .btn-box a {
     padding: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+  }
+
+  .about-img{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+  
+  .about-img img{
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    border: 4px solid var(--main-color);
+  }
+
+  aboutsection h2, 
+  education h2, 
+  skills h2,
+  Contact h2{
+    font-size: 40px;
+    margin-bottom: 19px;
+  }
+
+  .about-content h3{
+    font-size: 30px;
+  }
+
+  .about-content p{
+    font-size: 15px;
+    margin-bottom: 19px;
+  }
+
+  .work-experience, 
+  .my-skills{
+    font-size: 25px;
+  }
+
+  .content h3{
+    font-size: 20px;
+  }
+
+  .content p{
+    font-size: 14px;
+  }
+
+  .education-content::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -2.2rem;
+    width: 22px;
+    height: 22px;
+    background: var(--main-color);
+    border-radius: 50%;
   }
 
   .contact form textarea,
@@ -1178,9 +1296,21 @@ form .focus{
   }
 
   .skills-box {
-    width: 100%;
+    width: 300px;
     padding: 12px;
     box-sizing: border-box;
+  }
+
+  .text-field textarea::placeholder{
+    font-size: 17px;
+  }
+
+  .input-field input::placeholder{
+    font-size: 12px;
+  }
+
+  .btn-box .contact a{
+    font-size: 14px;
   }
 
   .tooltip-box {
@@ -1196,11 +1326,5 @@ form .focus{
     justify-content: center;
     align-items: flex-start;
     gap: 10px;
-  }
-  
-  .footer-text {
-    font-size: 12px;
-    text-align: center;
-    padding: 4px;
   }
 }

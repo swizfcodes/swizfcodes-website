@@ -74,7 +74,7 @@ footer{
 /* Mobile phones */
 @media screen and (max-width: 480px) {
   .footer-text p {
-    font-size: 16px;
+    font-size: 13px;
   }
 
   .footer-icon a {

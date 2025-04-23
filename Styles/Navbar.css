@@ -35,16 +35,48 @@
     top: 100%;
     left: 0;
     width: 100%;
-    background: var(--second-bg-color);
-    flex-direction: column;
+    background: var(--bg-color);
     align-items: flex-start;
     padding: 10px 5%;
     /* Hide initially */
   }
 
   .portfolio-navbar a {
-    font-size: 14px;
-    margin: 10px 0;
+    font-size: 12px;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 20px;
+    transition: 0.5s;
+  }
+
+  #menu-icon {
+    display: block;
+  }
+
+  /* When menu is active (use JS to add this class) */
+  .portfolio-navbar.active {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .portfolio-navbar {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: auto;
+    background: var(--bg-color);
+    align-items: flex-start;
+    padding: 10px 5%;
+    /* Hide initially */
+  }
+
+  .portfolio-navbar a {
+    font-size: 10px;
+    color: var(--text-color);
+    font-weight: 500;
+    margin-left: 20px;
+    transition: 0.5s;
   }
 
   #menu-icon {
