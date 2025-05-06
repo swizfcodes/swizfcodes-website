@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<svg baseProfile="full" height="1024" version="1.1" width="1024" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><script type="application/ecmascript"><![CDATA[
+<![CDATA[
+document.addEventListener('mousemove', function(e) {
+  ['left-eye', 'right-eye'].forEach(id => {
+    const eye = document.getElementById(id);
+    if (!eye) return;
+    const bbox = eye.getBBox();
+    const cx = bbox.x + bbox.width / 2;
+    const cy = bbox.y + bbox.height / 2;
+    const angle = Math.atan2(e.clientY - cy, e.clientX - cx);
+    const dx = Math.cos(angle) * 3;
+    const dy = Math.sin(angle) * 3;
+    eye.setAttribute('transform', `translate(${dx},${dy})`);
+  });
+});
+]]>
+]]></script></defs><image height="1024" width="1024" x="0" xlink:href="SwizfcodeS-pfp.png" y="0" /><circle cx="100" cy="115" fill="white" id="left-eye" r="6" /><circle cx="135" cy="115" fill="white" id="right-eye" r="6" /></svg>

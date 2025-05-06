@@ -1,0 +1,89 @@
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: center;
+  padding: 2rem;
+}
+
+.neon-project-card {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  height: 250px;
+  background-color: #111;
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex: 1 1 calc(33.33% - 1rem); /* 3 per row */
+  min-width: 300px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-title {
+  z-index: 2;
+  font-size: 1.5rem;
+  font-weight: bold;
+  pointer-events: none;
+  transition: transform 0.4s ease;
+}
+
+.project-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/swizfcodes-website/photos/Capture5.PNG'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.2);
+  filter: blur(8px);
+  transition: all 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.project-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.project-description {
+  font-size: 0.95rem;
+  color: #0ff;
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+/* Hover Effects */
+.neon-project-card:hover .project-bg {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: blur(4px);
+}
+
+.neon-project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.neon-project-card:hover {
+  border-color: #0ff;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.neon-project-card:hover .project-title {
+  transform: translateY(-80px);
+}

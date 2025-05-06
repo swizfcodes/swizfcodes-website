@@ -7,13 +7,13 @@ section{
   padding: 0 9%;
   flex-direction: column;
   justify-content: center;
-  background: url("/Images/home.jpg") no-repeat ;
   background-size: cover;
-  background-position: center;
 }
 
 .home-content{
   max-width: 1000px;
+  margin-top: 100px;
+  z-index: 2;
 }
 
 .home-content h1{
@@ -145,15 +145,187 @@ section{
   position: absolute;
   top: 0;
   right: 0;
-  width: 38%;
+  width: 40%;
   height: 100%;
   background: transparent;
+}
+
+.home-imgHover{
+  position: absolute;
+  top: 110px;
+  right: 0;
+  width: 40%;
+  height: 100%;
+  background: transparent;
+}
+
+.home-imgHover img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50px;
+  transition: .5s;
+  background: var(--bg-color);
 }
 
 .home-imgHover:hover{
   background: var(--bg-color);
   opacity: .8;
 }
+
+.my-projects-header{
+  margin-top: 100px;
+ 
+}
+
+.my-projects-header h3{
+  font-size: 70px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; 
+  width: 60%;
+  /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr,));*/
+  gap: 1.5rem;
+  padding: 10px;
+  row-gap: 50px;
+}
+
+.neon-project-card {
+  position: relative;
+  width: 100%;
+  max-width: 350px;
+  height: 250px;
+  background-color: var(--bg-color);
+  color: #fff;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-title {
+  z-index: 2;
+  font-size: 1.5rem;
+  font-weight: bold;
+  pointer-events: none;
+  transition: transform 0.4s ease;
+  color: var(--text-color);
+  font-size: 30px;
+}
+
+.project-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/swizfcodes-website/photos/Capture5.PNG'); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.2);
+  filter: blur(8px);
+  transition: all 0.5s ease-in-out;
+  z-index: 0;
+}
+
+.project-overlay {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  z-index: 2;
+}
+
+.project-description {
+  font-size: 17px;
+  color: rgb(26, 27, 27);
+  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+}
+
+/* Hover Effects */
+.neon-project-card:hover .project-bg {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: blur(4px);
+}
+
+.neon-project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.neon-project-card:hover {
+  border-color: #0ff;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.neon-project-card:hover .project-title {
+  transform: translateY(-80px);
+}
+
+.neon-project-card:hover .project-bg,
+.neon-project-card.touch-active .project-bg {
+  opacity: 1;
+  transform: scale(1.05);
+  filter: blur(4px);
+}
+
+.neon-project-card:hover .project-overlay,
+.neon-project-card.touch-active .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.neon-project-card:hover {
+  border-color: #0ff;
+  box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+}
+
+.neon-project-card:hover .project-title,
+.neon-project-card.touch-active .project-title {
+  transform: translateY(-80px);
+}
+
+.blog-div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.blogs-articles-header h3{
+  font-size: 70px;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.blogs-articles{
+  background: url("/swizfcodes-website/photos/blog4.jpg") no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 30px;
+  padding: 30px;
+  border-radius: 25px;
+  font-weight: 500;
+  justify-content: center;
+}
+
+
 
 aboutsection{
   display: flex;
@@ -943,6 +1115,58 @@ form .focus{
   border-color: transparent transparent white transparent;
 }
 
+@media (min-width: 1025px) and (max-width: 1800px) {
+  html {
+    font-size: 90%;
+  }
+
+  section {
+    padding: 120px 5% 32px;
+  }
+
+  .home-content h1 {
+    font-size: 72px;
+    margin-top: -100px;
+  }
+
+  .home-content h3 {
+    font-size: 52px;
+    margin-top: 550px;
+  }
+
+  .home-content p{
+    font-size: 27px;
+    max-width: 100%;
+    overflow: hidden;
+    overflow-wrap: break-word;
+  }
+
+  .home-imgHover{
+    display: flex;
+    flex: 1;
+    position: absolute;
+    top: 280px;
+    left: 200px;
+    max-width: 40%;
+    max-height: 40%;
+  }
+
+  .projects-grid {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+  }
+
+  .neon-project-card {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+  }
+}
+
 @media (max-width: 1024px) {
   html {
     font-size: 90%;
@@ -958,11 +1182,39 @@ form .focus{
 
   .home-content h3 {
     font-size: 32px;
+    margin-top: 340px;
   }
 
   .home-content p{
     font-size: 20px;
-    max-width: 450px;
+    max-width: 100%;
+    overflow: hidden;
+    overflow-wrap: break-word;
+  }
+
+  .home-imgHover{
+    display: flex;
+    flex: 1;
+    position: absolute;
+    top: 280px;
+    left: 200px;
+    max-width: 50%;
+    max-height: 40%;
+  }
+
+  .projects-grid {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+  }
+
+  .neon-project-card {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
   }
 
   .btn-box a {
@@ -1029,6 +1281,127 @@ form .focus{
   }
 }
 
+@media (min-width: 650px) and (max-width: 1023px) {
+  html {
+  }
+  body {
+    margin: 8px;
+    padding: 8px;
+    overflow-x: hidden;
+  }
+
+  .home {
+    display: flex;
+    padding: 8px;
+    font-size: 15px;
+    text-align: start;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 100px;
+  }
+
+  .home-imgHover{
+    display: flex;
+    position: absolute;
+    top: 280px;
+    left: 200px;
+    max-width: 100%;
+    max-height: 40%;
+  }
+  
+  .home-imgHover img{
+    width: 100%;
+    height: 100%;
+    transition: .8s;
+    background: var(--bg-color);
+  }
+  
+  .home-imgHover:hover{
+    background: var(--bg-color);
+    opacity: .8;
+  }
+
+  .home-content h1 {
+    font-size: 78px;
+    margin-top: -50px !important;
+   
+  }
+
+  .text-animate h3 {
+    font-size: 50px;
+    margin-top: 500px;
+  }
+
+  .home-content p {
+    max-width: 50%;
+    font-size: 20px;
+  }
+
+  .projects-grid {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+  }
+
+  .neon-project-card {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 850px) {
+  .home-imgHover{
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    max-width: 40%;
+    max-height: 10%;
+  }
+  
+  .home-imgHover img{
+    image-rendering: pixelated; /* for pixelated sharpness */
+    width: 100%;
+    height: 100%;
+    transition: .8s;
+    background: var(--bg-color);
+  }
+  
+  .home-imgHover:hover{
+    background: var(--bg-color);
+    opacity: .8;
+  }
+
+  .home-content h1 {
+    font-size: 38px;
+    margin-left: 280px !important;
+    margin-top: -100px !important;
+  }
+
+  .home-content .text-animate h3 {
+    font-size: 30px;
+    margin-top: 40px !important;
+    margin-left: 280px !important;
+  }
+
+
+  .home-content p {
+    margin-top: 100px !important;
+    max-width: 100%;
+    word-wrap: break-word;
+  }
+}
+
+.neon-project-card {
+  flex: 0 0 80%;
+  scroll-snap-align: start;
+}
+
+
+
 /* Small Screens (Phones and small tablets) */
 @media (max-width: 768px) {
   html {
@@ -1048,36 +1421,135 @@ form .focus{
     text-align: start;
     width: 100%;
     box-sizing: border-box;
+    margin-top: 100px;
   }
+
+  
+  .home-imgHover{
+    position: absolute;
+    top: 80px;
+    left: 10px;
+    max-width: 40%;
+    max-height: 20%;
+  }
+  
+  .home-imgHover img{
+    image-rendering: pixelated; /* for pixelated sharpness */
+    width: 100%;
+    height: 100%;
+    transition: .8s;
+    background: var(--bg-color);
+  }
+  
+  .home-imgHover:hover{
+    background: var(--bg-color);
+    opacity: .8;
+  }
+
+  .my-projects-header h3{
+    font-size: 30px;
+    text-align: start;
+    color: var(--text-color);
+ 
+   
+  }
+
+  .projects-grid {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 10px;
+  }
+
+  .neon-project-card {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+  }
+
+  .project-title {
+    z-index: 2;
+    font-size: 1.5rem;
+    font-weight: bold;
+    pointer-events: none;
+    transition: transform 0.4s ease;
+    color: var(--text-color);
+    font-size: 20px;
+  }
+
+  .blog-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 100px;
+  }
+  
+  .blogs-articles-header{
+   
+   
+  }
+  
+  .blogs-articles-header h3{
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: start;
+  }
+  
+  .blogs-articles{
+    background: url("/swizfcodes-website/photos/background-2.png") no-repeat;
+    background-size: cover;
+    display: flex;
+    padding: 30px;
+    border-radius: 25px;
+    font-weight: 500;
+    justify-content: center;
+    margin-top: 30px;
+  }
+
+  .blogs-articles p{
+    font-size: 20px;
+  }
+  
+
   section, 
   aboutsection, 
   education, 
   skills, 
   contact {
-   margin-top: 50px;
+   margin-top: 100px;
   }
 
   .home-img img {
-    width: 80%;
+    width: 100%;
+  }
+
+  .home-content {
+    padding: 8px;
+    width: 100%;
+   
   }
 
   .home-content h1 {
     font-size: 38px;
+    margin-left: 270px;
+    margin-top: -70px;
   }
 
   .home-content h3 {
-    font-size: 25px;
+    font-size: 30px;
+    margin-top: 80px;
   }
-
- 
 
   .home-content p {
     display: flex;
     flex: 1;
-    font-size: 17px;
+    font-size: 20px;
     text-align: start;
-    padding-right: 50px;
-    max-width: 380px;
+    padding-right: 20px;
+    max-width: 90%;
     line-height: 1.5;
   }
 
@@ -1132,6 +1604,10 @@ form .focus{
     font-size: 16px;
   }
 
+  .skills-box{
+    width: 480px;
+  }
+
   .tooltip {
     display: none;
   }
@@ -1172,7 +1648,7 @@ form .focus{
   .home {
     display: flex;
     align-items: center;
-    padding: 8px;
+    padding: 9px;
     font-size: 15px;
     text-align: center;
     width: 100%;
@@ -1199,20 +1675,104 @@ form .focus{
     font-size: 35px;
     word-wrap: break-word;
     text-align: start;
+    margin-left: 150px;
+    margin-top: -120px;
   }
 
   .home-content h3{
     font-size: 25px;
     word-wrap: break-word;
     text-align: start;
+    margin-top: 20px;
   }
 
   .home-content p {
-    font-size: 16px;
+    font-size: 17px;
     text-align: start;
-    padding-right: 50px;
-    word-wrap: break-word;
   }
+
+  .my-projects-header h3{
+    font-size: 25px;
+    text-align: start;
+    margin-left: -160px;
+    color: var(--text-color);
+  }
+
+  .projects-grid {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    gap: 10px;
+  }
+
+  .projects-grid::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+  }
+
+  .neon-project-card {
+    flex: 0 0 80%;
+    scroll-snap-align: start;
+  }
+
+  .neon-project-card:hover .project-bg,
+  .neon-project-card.touch-active .project-bg {
+    opacity: 1;
+    transform: scale(1.05);
+    filter: blur(4px);
+  }
+
+  .neon-project-card:hover .project-overlay,
+  .neon-project-card.touch-active .project-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .neon-project-card:hover {
+    border-color: #0ff;
+    box-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
+  }
+
+  .neon-project-card:hover .project-title,
+  .neon-project-card.touch-active .project-title {
+    transform: translateY(-80px);
+  }
+
+  .blog-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    margin-top: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .blogs-articles-header h3{
+    font-size: 25px;
+    margin-bottom: 10px;
+    text-align: start;
+  }
+  
+  .blogs-articles{
+    background: url("/swizfcodes-website/photos/background-2.png") no-repeat;
+    background-size: cover;
+    display: flex;
+    padding: 30px;
+    border-radius: 25px;
+    font-weight: 500;
+    justify-content: center;
+    text-align: start;
+    margin-top: 30px;
+  }
+
+  .blogs-articles p{
+    font-size: 17px;
+  }
+  
 
   .about-content h2 {
     font-size: 22px;
