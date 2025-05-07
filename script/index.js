@@ -18,3 +18,18 @@
       }
     });
   });
+
+  const title = document.querySelector('.project-title');
+
+  const observer = new IntersectionObserver(
+    entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          title.classList.add('animate');
+        }
+      });
+    },
+    { threshold: 0.5 }
+  );
+
+  if (title) observer.observe(title);

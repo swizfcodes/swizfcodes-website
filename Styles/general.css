@@ -27,6 +27,31 @@ body{
   padding-top: 35px;
 }
 
+/* Applies to all scrollable elements */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Scrollbar Track */
+::-webkit-scrollbar-track {
+  background: #0e0e0e;
+  border-radius: 6px;
+  box-shadow: inset 0 0 4px #111;
+}
+
+/* Scrollbar Thumb */
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #3b373b, #292e2e);
+  box-shadow: 0 0 7px #363436;
+  box-shadow: 0 0 2px #82a5a7;
+}
+
+/* On hover */
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3b373b, #292e2e);
+  box-shadow: 0 0 7px #363436;
+}
+
 
 @media screen and (max-width: 768px) {
   html {

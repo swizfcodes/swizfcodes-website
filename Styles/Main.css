@@ -4,16 +4,15 @@ section{
   display: flex;
   flex-wrap: wrap;
   align-items: self-start;
-  padding: 0 9%;
   flex-direction: column;
   justify-content: center;
-  background-size: cover;
+  background: url("/swizfcodes-website/photos/swizf-bck1.png") no-repeat;
+  background-size: contain;
 }
 
 .home-content{
   max-width: 1000px;
   margin-top: 100px;
-  z-index: 2;
 }
 
 .home-content h1{
@@ -141,14 +140,6 @@ section{
   width: 100%;
 }
 
-.home-imgHover{
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 40%;
-  height: 100%;
-  background: transparent;
-}
 
 .home-imgHover{
   position: absolute;
@@ -166,6 +157,7 @@ section{
   border-radius: 50px;
   transition: .5s;
   background: var(--bg-color);
+  display: none;
 }
 
 .home-imgHover:hover{
@@ -186,19 +178,18 @@ section{
 
 .projects-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; 
-  width: 60%;
-  /*grid-template-columns: repeat(auto-fit, minmax(300px, 1fr,));*/
   gap: 1.5rem;
   padding: 10px;
   row-gap: 50px;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%; /* Optional: adjust if needed */
 }
 
 .neon-project-card {
   position: relative;
   width: 100%;
-  max-width: 350px;
-  height: 250px;
+  max-width: 550px;
+  height: 350px;
   background-color: var(--bg-color);
   color: #fff;
   border: 2px solid transparent;
@@ -214,13 +205,42 @@ section{
 
 .project-title {
   z-index: 2;
-  font-size: 1.5rem;
   font-weight: bold;
   pointer-events: none;
   transition: transform 0.4s ease;
   color: var(--text-color);
-  font-size: 30px;
+  font-size: 4rem;
 }
+
+.project-title {
+  font-weight: bold;
+  text-align: center;
+  text-shadow: 0 0 10px #a3a5a5, 0 0 20px #ecf3f3;
+  animation: floatGlow 1s ease-in-out infinite;
+  opacity: 0;
+  transform: scale(0.8) rotateX(90deg);
+  transition: all 0.8s ease-in-out;
+  will-change: transform, opacity;
+}
+
+/* Constant animation (floating + glowing) */
+@keyframes floatGlow {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    text-shadow: 0 0 10px #6f7474, 0 0 20px #5b5f5f;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+    text-shadow: 0 0 20px #838183, 0 0 40px #757275;
+  }
+}
+
+/* Scroll-triggered entrance animation */
+.project-title.animate {
+  opacity: 0.7;
+  transform: scale(1) rotateX(0deg);
+}
+
 
 .project-bg {
   position: absolute;
@@ -244,7 +264,7 @@ section{
   left: 20px;
   right: 20px;
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(20px) !important;
   transition: all 0.4s ease;
   z-index: 2;
 }
@@ -252,8 +272,16 @@ section{
 .project-description {
   font-size: 17px;
   color: rgb(26, 27, 27);
-  text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  text-shadow: 0 0 5px rgb(50, 53, 53), 0 0 10px #0ff;
 }
+
+.project-title.animate {
+  opacity: 1;
+  animation: floatGlow 2s ease-in-out infinite;
+  transform: scale(0.8) rotateX(90deg);
+  transition: transform 0.4s ease;
+}
+
 
 /* Hover Effects */
 .neon-project-card:hover .project-bg {
@@ -273,7 +301,7 @@ section{
 }
 
 .neon-project-card:hover .project-title {
-  transform: translateY(-80px);
+  transform: translateY(-80px) !important;
 }
 
 .neon-project-card:hover .project-bg,
@@ -296,7 +324,7 @@ section{
 
 .neon-project-card:hover .project-title,
 .neon-project-card.touch-active .project-title {
-  transform: translateY(-80px);
+  transform: translateY(-80px) !important;
 }
 
 .blog-div{
@@ -1115,7 +1143,60 @@ form .focus{
   border-color: transparent transparent white transparent;
 }
 
-@media (min-width: 1025px) and (max-width: 1800px) {
+
+@media (min-width: 1200px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%; /* Optional: adjust if needed */
+  }
+
+  .my-projects-header h3{
+    font-size: 4.5rem;
+ }
+
+    .blogs-articles-header{
+      text-align: start;
+    }
+  
+    .blogs-articles-header h3{
+      font-size: 4.5rem;
+      margin-bottom: 3%;
+      text-align: start;
+    }
+  
+    .blog-article p{
+      font-size: 22px;
+    }
+  
+    .blog-article h4{
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+  
+
+  .home-imgHover{
+    position: absolute;
+    top: 110px;
+    right: 0;
+    width: 33%;
+    height: 70%;
+    background: transparent;
+  }
+
+  .neon-project-card{
+    width: 100%;
+    max-width: 550px;
+    height: 350px;
+  }
+
+  .home-content p{
+    font-size: 25px;
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 1800px) and (min-width: 1191px){
   html {
     font-size: 90%;
   }
@@ -1125,46 +1206,160 @@ form .focus{
   }
 
   .home-content h1 {
-    font-size: 72px;
-    margin-top: -100px;
+    font-size: 70px;
+    margin-top: -50px;
   }
 
   .home-content h3 {
-    font-size: 52px;
-    margin-top: 550px;
+    font-size: 40px;
   }
 
   .home-content p{
-    font-size: 27px;
-    max-width: 100%;
-    overflow: hidden;
-    overflow-wrap: break-word;
+    font-size: 25px;
+    max-width: 70%;
+    overflow-y: hidden;
   }
 
-  .home-imgHover{
-    display: flex;
-    flex: 1;
-    position: absolute;
-    top: 280px;
-    left: 200px;
-    max-width: 40%;
-    max-height: 40%;
-  }
+  
+.home-imgHover{
+  position: absolute;
+  top: 110px;
+  right: 0;
+  width: 33%;
+  height: 50%;
+  background: transparent;
+ }
 
   .projects-grid {
-    display: flex;
-    width: 100%;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%; /* Optional: adjust if needed */
+  }
+
+    
+  .project-title {
+    z-index: 2;
+    font-weight: bold;
+    pointer-events: none;
+    transition: transform 0.4s ease;
+    color: var(--text-color);
+    font-size: 30px !important;
   }
 
   .neon-project-card {
     flex: 0 0 80%;
     scroll-snap-align: start;
   }
+
+  .neon-project-card{
+    width: 100%;
+    max-width: 550px;
+    height: 350px;
+  }
+
+      
+  .my-projects-header h3{
+    font-size: 4.5rem;
+ }
+
+    .blogs-articles-header{
+      text-align: start;
+    }
+  
+    .blogs-articles-header h3{
+      font-size: 4.5rem;
+      margin-bottom: 5%;
+      text-align: start;
+    }
+  
+    .blog-article p{
+      font-size: 22px;
+    }
+  
+    .blog-article h4{
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+  
+}
+
+@media (max-width: 1190px) and (min-width: 850px) {
+  .home-content h1{
+    font-size: 60px;
+    margin-top: -140px;
+  }
+
+  .text-animate h3{
+    font-size: 40px;
+  }
+
+  .home-content p{
+    font-size: 25px;
+    max-width: 65%;
+    overflow: hidden;
+    max-width: 70%;
+  }
+
+  .home-imgHover img{
+    width: 100%;
+    height: 100%;
+    transition: .8s;
+    background: var(--bg-color);
+  }
+
+  
+.home-imgHover{
+  position: absolute;
+  top: 110px;
+  right: 0;
+  width: 34%;
+  height: 50%;
+  background: transparent;
+}
+
+  .home-imgHover:hover{
+    background: var(--bg-color);
+    opacity: .8;
+  }
+
+  
+  .project-title {
+    z-index: 2;
+    font-weight: bold;
+    pointer-events: none;
+    transition: transform 0.4s ease;
+    color: var(--text-color);
+    font-size: 27px !important;
+  }
+
+  .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+      width: 100%; /* Optional: adjust if needed */
+    }
+
+    
+  .my-projects-header h3{
+    font-size: 4.5rem;
+ }
+
+    .blogs-articles-header{
+      text-align: start;
+    }
+  
+    .blogs-articles-header h3{
+      font-size: 4.5rem;
+      margin-bottom: 5%;
+      text-align: start;
+    }
+  
+    .blog-article p{
+      font-size: 22px;
+    }
+  
+    .blog-article h4{
+      font-size: 27px;
+      margin-bottom: 10px;
+    }
+  
 }
 
 @media (max-width: 1024px) {
@@ -1178,43 +1373,66 @@ form .focus{
 
   .home-content h1 {
     font-size: 52px;
+    margin-top: -100px;
   }
 
   .home-content h3 {
     font-size: 32px;
-    margin-top: 340px;
   }
 
   .home-content p{
     font-size: 20px;
-    max-width: 100%;
+    max-width: 65%;
     overflow: hidden;
-    overflow-wrap: break-word;
-  }
-
-  .home-imgHover{
-    display: flex;
-    flex: 1;
-    position: absolute;
-    top: 280px;
-    left: 200px;
-    max-width: 50%;
-    max-height: 40%;
   }
 
   .projects-grid {
-    display: flex;
-    width: 100%;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%; /* Optional: adjust if needed */
+  }
+
+  .project-title {
+    z-index: 2;
+    font-weight: bold;
+    pointer-events: none;
+    transition: transform 0.4s ease;
+    color: var(--text-color);
+    font-size:22px !important;
   }
 
   .neon-project-card {
     flex: 0 0 80%;
     scroll-snap-align: start;
+  }
+
+  .neon-project-card{
+    width: 100%;
+    max-width: 350px;
+    max-height: 250px;
+  }
+
+  
+  .my-projects-header h3{
+    font-size: 2.5rem;
+ }
+
+  .blogs-articles-header{
+    text-align: start;
+  }
+
+  .blogs-articles-header h3{
+    font-size: 3.5rem;
+    margin-bottom: 5%;
+    text-align: start;
+  }
+
+  .blog-article p{
+    font-size: 22px;
+  }
+
+  .blog-article h4{
+    font-size: 27px;
+    margin-bottom: 10px;
   }
 
   .btn-box a {
@@ -1282,59 +1500,9 @@ form .focus{
 }
 
 @media (min-width: 650px) and (max-width: 1023px) {
-  html {
-  }
-  body {
-    margin: 8px;
-    padding: 8px;
-    overflow-x: hidden;
-  }
 
-  .home {
-    display: flex;
-    padding: 8px;
-    font-size: 15px;
-    text-align: start;
-    width: 100%;
-    box-sizing: border-box;
-    margin-top: 100px;
-  }
-
-  .home-imgHover{
-    display: flex;
-    position: absolute;
-    top: 280px;
-    left: 200px;
-    max-width: 100%;
-    max-height: 40%;
-  }
-  
-  .home-imgHover img{
-    width: 100%;
-    height: 100%;
-    transition: .8s;
-    background: var(--bg-color);
-  }
-  
-  .home-imgHover:hover{
-    background: var(--bg-color);
-    opacity: .8;
-  }
-
-  .home-content h1 {
-    font-size: 78px;
-    margin-top: -50px !important;
-   
-  }
-
-  .text-animate h3 {
-    font-size: 50px;
-    margin-top: 500px;
-  }
-
-  .home-content p {
-    max-width: 50%;
-    font-size: 20px;
+  .my-projects-header h3{
+      font-size: 2.5rem;
   }
 
   .projects-grid {
@@ -1351,53 +1519,76 @@ form .focus{
     flex: 0 0 80%;
     scroll-snap-align: start;
   }
+
+  .home-content p{
+    font-size: 20px;
+    overflow: hidden;
+    max-width: 65%;
+  }
+
+  .neon-project-card{
+    width: 100%;
+    max-width: 350px;
+    max-height: 250px;
+  }
+
+  .blogs-articles-header{
+    text-align: start;
+  }
+
+  .blogs-articles-header h3{
+    font-size: 2.5rem;
+    margin-bottom: 5%;
+    text-align: start;
+  }
+
+  .blog-article p{
+    font-size: 22px;
+  }
+
+  .blog-article h4{
+    font-size: 27px;
+    margin-bottom: 10px;
+  }
+
 }
 
 @media (min-width: 650px) and (max-width: 850px) {
-  .home-imgHover{
-    position: absolute;
-    top: 80px;
-    left: 10px;
-    max-width: 40%;
-    max-height: 10%;
+  .home-content h1{
+    margin-top: -150px;
   }
   
-  .home-imgHover img{
-    image-rendering: pixelated; /* for pixelated sharpness */
-    width: 100%;
-    height: 100%;
-    transition: .8s;
-    background: var(--bg-color);
+ .home-content p{
+    font-size: 20px;
+    font-weight: 100;
+    overflow: hidden;
+    max-width: 65%;
   }
-  
+
   .home-imgHover:hover{
     background: var(--bg-color);
     opacity: .8;
+    display: none;
   }
-
-  .home-content h1 {
-    font-size: 38px;
-    margin-left: 280px !important;
-    margin-top: -100px !important;
+  .projects-grid {
+    display: flex;
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
   }
-
-  .home-content .text-animate h3 {
-    font-size: 30px;
-    margin-top: 40px !important;
-    margin-left: 280px !important;
-  }
-
-
-  .home-content p {
-    margin-top: 100px !important;
-    max-width: 100%;
-    word-wrap: break-word;
-  }
-}
-
-.neon-project-card {
+  .neon-project-card {
   flex: 0 0 80%;
   scroll-snap-align: start;
+  }
+
+  .neon-project-card{
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
+  }
 }
 
 
@@ -1422,6 +1613,7 @@ form .focus{
     width: 100%;
     box-sizing: border-box;
     margin-top: 100px;
+    background: var(--bg-color);
   }
 
   
@@ -1439,6 +1631,7 @@ form .focus{
     height: 100%;
     transition: .8s;
     background: var(--bg-color);
+    display: block;
   }
   
   .home-imgHover:hover{
@@ -1462,6 +1655,12 @@ form .focus{
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     gap: 10px;
+  }
+
+  .neon-project-card{
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
   }
 
   .neon-project-card {
@@ -1500,7 +1699,7 @@ form .focus{
   
   .blogs-articles{
     background: url("/swizfcodes-website/photos/background-2.png") no-repeat;
-    background-size: cover;
+    background-size: contain;
     display: flex;
     padding: 30px;
     border-radius: 25px;
@@ -1509,9 +1708,15 @@ form .focus{
     margin-top: 30px;
   }
 
-  .blogs-articles p{
+  .blog-article p{
     font-size: 20px;
   }
+
+  .blog-article h4{
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
   
 
   section, 
@@ -1533,14 +1738,14 @@ form .focus{
   }
 
   .home-content h1 {
-    font-size: 38px;
-    margin-left: 270px;
-    margin-top: -70px;
+    font-size: 3.5rem;
+    margin-left: 40%;
+    margin-top: -100px;
   }
 
   .home-content h3 {
-    font-size: 30px;
-    margin-top: 80px;
+    font-size: 40px;
+    margin-top: 10%;
   }
 
   .home-content p {
@@ -1551,6 +1756,7 @@ form .focus{
     padding-right: 20px;
     max-width: 90%;
     line-height: 1.5;
+    margin-top: 50px;
   }
 
   .btn-box.about, 
@@ -1675,15 +1881,15 @@ form .focus{
     font-size: 35px;
     word-wrap: break-word;
     text-align: start;
-    margin-left: 150px;
     margin-top: -120px;
+    margin-left: 45%;
   }
 
   .home-content h3{
     font-size: 25px;
     word-wrap: break-word;
     text-align: start;
-    margin-top: 20px;
+    margin-top: 30px;
   }
 
   .home-content p {
@@ -1707,6 +1913,12 @@ form .focus{
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     gap: 10px;
+  }
+
+  .neon-project-card{
+    width: 100%;
+    max-width: 350px;
+    height: 250px;
   }
 
   .projects-grid::-webkit-scrollbar {
@@ -1769,8 +1981,13 @@ form .focus{
     margin-top: 30px;
   }
 
-  .blogs-articles p{
+  .blog-article p{
     font-size: 17px;
+  }
+
+  .blog-article h4{
+    font-size: 22px;
+    margin-bottom: 10px;
   }
   
 
