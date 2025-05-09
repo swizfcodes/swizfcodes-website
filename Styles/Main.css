@@ -1,39 +1,41 @@
-section{
+section {
   min-height: 100vh;
   padding: 160px 9% 32px;
   display: flex;
   flex-wrap: wrap;
-  align-items: self-start;
+  align-items: flex-start;
   flex-direction: column;
   justify-content: center;
-  background: url("/swizfcodes-website/photos/swizf-bck1.png") no-repeat;
-  background-size: contain;
+  background-image: url("/swizfcodes-website/photos/swizf-bck2.png");
+  background-repeat: no-repeat;
+  background-position: top right; 
 }
 
 .home-content{
-  max-width: 1000px;
-  margin-top: 100px;
+  max-width: 100%;
+  margin-top: 11%;
 }
 
 .home-content h1{
-  font-size: 110px;
+  font-size: 8rem;
   font-weight: 700;
   line-height: 1.3;
+  margin-top: -12%;
 }
 
 .home-content p{
-  font-size: 25px;
-  margin: 32px 0 64px;
+  font-size: 2.2rem;
+  margin: 5% 0 6%;
   text-wrap: wrap;
 }
 
 .text-animate{
   position: relative;
-  width: 600px;
+  width: 650px;
 }
 
 .text-animate h3{
-  font-size: 60px;
+  font-size: 5rem;
   font-weight: 700;
   text-wrap: wrap;
   color: transparent;
@@ -166,13 +168,14 @@ section{
 }
 
 .my-projects-header{
-  margin-top: 100px;
+  margin-top: 10%;
+  margin-bottom: 3%;
  
 }
 
 .my-projects-header h3{
-  font-size: 70px;
-  margin-bottom: 10px;
+  font-size: 5rem;
+  margin-bottom: 3%;
   text-align: center;
 }
 
@@ -336,9 +339,9 @@ section{
 }
 
 .blogs-articles-header h3{
-  font-size: 70px;
-  margin-bottom: 10px;
-  text-align: center;
+  font-size: 5rem;
+  margin-bottom: 3%;
+  text-align: start;
 }
 
 .blogs-articles{
@@ -351,6 +354,15 @@ section{
   border-radius: 25px;
   font-weight: 500;
   justify-content: center;
+}
+
+.blog-article p{
+  font-size: 2.2rem;
+}
+
+.blog-article h4{
+  font-size: 3rem;
+  margin-bottom: 2%;
 }
 
 
@@ -1145,60 +1157,18 @@ form .focus{
 
 
 @media (min-width: 1200px) {
-  .projects-grid {
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%; /* Optional: adjust if needed */
-  }
-
-  .my-projects-header h3{
-    font-size: 4.5rem;
- }
-
-    .blogs-articles-header{
-      text-align: start;
-    }
-  
-    .blogs-articles-header h3{
-      font-size: 4.5rem;
-      margin-bottom: 3%;
-      text-align: start;
-    }
-  
-    .blog-article p{
-      font-size: 22px;
-    }
-  
-    .blog-article h4{
-      font-size: 27px;
-      margin-bottom: 10px;
-    }
-  
-
-  .home-imgHover{
-    position: absolute;
-    top: 110px;
-    right: 0;
-    width: 33%;
-    height: 70%;
-    background: transparent;
-  }
-
-  .neon-project-card{
-    width: 100%;
-    max-width: 550px;
-    height: 350px;
-  }
 
   .home-content p{
-    font-size: 25px;
-    max-width: 100%;
+    font-size: 2.1rem;
+    max-width: 60%;
     overflow: hidden;
   }
-}
+} 
 
-@media (max-width: 1800px) and (min-width: 1191px){
+
+@media (max-width: 1190px) and (min-width: 1025px){
   html {
-    font-size: 90%;
+    font-size: 70%;
   }
 
   section {
@@ -1206,17 +1176,17 @@ form .focus{
   }
 
   .home-content h1 {
-    font-size: 70px;
-    margin-top: -50px;
+    font-size: 5.5rem;
+    margin-top: -8%;
   }
 
   .home-content h3 {
-    font-size: 40px;
+    font-size: 3.5rem;
   }
 
   .home-content p{
-    font-size: 25px;
-    max-width: 70%;
+    font-size: 1.9rem;
+    max-width: 60%;
     overflow-y: hidden;
   }
 
@@ -1282,7 +1252,7 @@ form .focus{
   
 }
 
-@media (max-width: 1190px) and (min-width: 850px) {
+/*@media (max-width: 1190px) and (min-width: 850px) {
   .home-content h1{
     font-size: 60px;
     margin-top: -140px;
@@ -1333,7 +1303,7 @@ form .focus{
 
   .projects-grid {
       grid-template-columns: repeat(2, 1fr);
-      width: 100%; /* Optional: adjust if needed */
+      width: 100%; 
     }
 
     
@@ -1360,9 +1330,10 @@ form .focus{
       margin-bottom: 10px;
     }
   
-}
+}*/
 
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 768px){
+ 
   html {
     font-size: 90%;
   }
@@ -1372,17 +1343,18 @@ form .focus{
   }
 
   .home-content h1 {
-    font-size: 52px;
-    margin-top: -100px;
+    font-size: 3.4rem;
+    margin-top: -8%;
+    max-width: 60%;
   }
 
   .home-content h3 {
-    font-size: 32px;
+    font-size: 2.5rem;
   }
 
   .home-content p{
-    font-size: 20px;
-    max-width: 65%;
+    font-size: 1.2rem;
+    max-width: 60%;
     overflow: hidden;
   }
 
@@ -1397,7 +1369,7 @@ form .focus{
     pointer-events: none;
     transition: transform 0.4s ease;
     color: var(--text-color);
-    font-size:22px !important;
+    font-size: 1.7rem !important;
   }
 
   .neon-project-card {
@@ -1421,18 +1393,19 @@ form .focus{
   }
 
   .blogs-articles-header h3{
-    font-size: 3.5rem;
-    margin-bottom: 5%;
+    font-size: 2.5rem;
+    margin-bottom: 3%;
     text-align: start;
   }
 
   .blog-article p{
-    font-size: 22px;
+    font-size: 1.2rem;
+    color: var(--text-color);
   }
 
   .blog-article h4{
-    font-size: 27px;
-    margin-bottom: 10px;
+    font-size: 1.8rem;
+    margin-bottom: 3%;
   }
 
   .btn-box a {
@@ -1441,7 +1414,7 @@ form .focus{
   }
 
   .btn-box {
-    width: 60%;
+    width: 50%;
     gap: 16px;
     height: auto;
   }
@@ -1499,10 +1472,11 @@ form .focus{
   }
 }
 
-@media (min-width: 650px) and (max-width: 1023px) {
-
+/*@media (min-width: 769px) and (max-width: 1023px) {
+  
   .my-projects-header h3{
-      font-size: 2.5rem;
+    text-align: start;
+    font-size: 2.5rem;
   }
 
   .projects-grid {
@@ -1520,10 +1494,21 @@ form .focus{
     scroll-snap-align: start;
   }
 
+  .home-content h1 {
+    font-size: 2.5rem;
+    margin-top: -7%;
+    color: purple;
+  }
+
+  .home-content h3 {
+    font-size: 2rem;
+  }
+
   .home-content p{
-    font-size: 20px;
+    font-size: 1.2rem;
     overflow: hidden;
-    max-width: 65%;
+    max-width: 100%;
+    color:red
   }
 
   .neon-project-card{
@@ -1543,24 +1528,23 @@ form .focus{
   }
 
   .blog-article p{
-    font-size: 22px;
+    font-size: 1.2rem;
+    color: var(--text-color);
   }
 
   .blog-article h4{
     font-size: 27px;
     margin-bottom: 10px;
   }
+}*/
 
-}
-
-@media (min-width: 650px) and (max-width: 850px) {
+/*@media (min-width: 650px) and (max-width: 850px) {
   .home-content h1{
     margin-top: -150px;
   }
   
  .home-content p{
-    font-size: 20px;
-    font-weight: 100;
+    font-size: 1.2rem;
     overflow: hidden;
     max-width: 65%;
   }
@@ -1603,35 +1587,33 @@ form .focus{
     margin: 8px;
     padding: 8px;
     overflow-x: hidden;
+    width: 100%;
   }
 
   .home {
     display: flex;
     padding: 8px;
-    font-size: 15px;
     text-align: start;
-    width: 100%;
+    width: 100% ;
     box-sizing: border-box;
-    margin-top: 100px;
     background: var(--bg-color);
   }
 
   
   .home-imgHover{
-    position: absolute;
-    top: 80px;
-    left: 10px;
+    position: relative;
+    left: 1%;
+    top: 30%;
     max-width: 40%;
     max-height: 20%;
   }
   
   .home-imgHover img{
-    image-rendering: pixelated; /* for pixelated sharpness */
     width: 100%;
     height: 100%;
     transition: .8s;
     background: var(--bg-color);
-    display: block;
+    display: block !important;
   }
   
   .home-imgHover:hover{
@@ -1640,11 +1622,9 @@ form .focus{
   }
 
   .my-projects-header h3{
-    font-size: 30px;
+    font-size: 2.5rem;
     text-align: start;
     color: var(--text-color);
- 
-   
   }
 
   .projects-grid {
@@ -1670,7 +1650,7 @@ form .focus{
 
   .project-title {
     z-index: 2;
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     pointer-events: none;
     transition: transform 0.4s ease;
@@ -1686,13 +1666,8 @@ form .focus{
     margin-top: 100px;
   }
   
-  .blogs-articles-header{
-   
-   
-  }
-  
   .blogs-articles-header h3{
-    font-size: 30px;
+    font-size: 2.5rem;
     margin-bottom: 10px;
     text-align: start;
   }
@@ -1709,7 +1684,7 @@ form .focus{
   }
 
   .blog-article p{
-    font-size: 20px;
+    font-size: 1.7rem;
   }
 
   .blog-article h4{
@@ -1738,25 +1713,25 @@ form .focus{
   }
 
   .home-content h1 {
-    font-size: 3.5rem;
-    margin-left: 40%;
-    margin-top: -100px;
+    font-size: 5rem;
+    margin-left: 45%;
+    margin-top: -45%;
   }
 
   .home-content h3 {
-    font-size: 40px;
-    margin-top: 10%;
+    font-size: 3.5rem;
+    margin-top: 15%;
+    margin-bottom: 4%;
   }
 
   .home-content p {
-    display: flex;
-    flex: 1;
-    font-size: 20px;
+    display: block;
+    font-size: 2rem;
     text-align: start;
-    padding-right: 20px;
-    max-width: 90%;
+    max-width: 100% !important;
     line-height: 1.5;
-    margin-top: 50px;
+    margin-top: 4%;
+     margin-bottom: 7%;
   }
 
   .btn-box.about, 
@@ -1769,6 +1744,7 @@ form .focus{
     width: 60%;
     gap: 16px;
     height: auto;
+    height: 40px;
   }
 
   .btn-box a {
@@ -1861,6 +1837,27 @@ form .focus{
     box-sizing: border-box;
   }
 
+   .home-imgHover{
+    position: absolute;
+    left: 1%;
+    top: 15%;
+    max-width: 40%;
+    max-height: 20%;
+  }
+  
+  .home-imgHover img{
+    width: 100%;
+    height: 100%;
+    transition: .8s;
+    background: var(--bg-color);
+    display: block !important;
+  }
+  
+  .home-imgHover:hover{
+    background: var(--bg-color);
+    opacity: .8;
+  }
+
   section, 
   aboutsection, 
   education, 
@@ -1881,7 +1878,7 @@ form .focus{
     font-size: 35px;
     word-wrap: break-word;
     text-align: start;
-    margin-top: -120px;
+    margin-top: 10%;
     margin-left: 45%;
   }
 
