@@ -33,3 +33,55 @@
   );
 
   if (title) observer.observe(title);
+
+  const grid = document.querySelector('.projects-grid');
+  let shuffleInterval;
+
+  function shuffleCardsFLIP() {
+    const cards = Array.from(grid.children);
+
+    // Step 1: Store initial positions
+    const positions = new Map();
+    cards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      positions.set(card, rect);
+    });
+
+    // Step 2: Shuffle cards
+    const shuffled = cards
+      .map(card => ({ card, sort: Math.random() }))
+      .sort((a, b) => a.sort - b.sort)
+      .map(obj => obj.card);
+
+    shuffled.forEach(card => grid.appendChild(card)); // reorder in DOM
+
+    // Step 3: Calculate new positions and apply transforms
+    shuffled.forEach(card => {
+      const first = positions.get(card);
+      const last = card.getBoundingClientRect();
+      const dx = first.left - last.left;
+      const dy = first.top - last.top;
+
+      card.style.transform = `translate(${dx}px, ${dy}px)`;
+      requestAnimationFrame(() => {
+        card.style.transition = 'transform 0.6s ease';
+        card.style.transform = '';
+      });
+    });
+  }
+
+  // Start and stop functions with hover handling
+  function startShuffle() {
+    shuffleInterval = setInterval(shuffleCardsFLIP, 3000);
+  }
+
+  function stopShuffle() {
+    clearInterval(shuffleInterval);
+  }
+
+  grid.addEventListener('mouseenter', stopShuffle);
+  grid.addEventListener('mouseleave', startShuffle);
+
+  startShuffle();
+
+  
