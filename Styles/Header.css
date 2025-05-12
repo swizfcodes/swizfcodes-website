@@ -10,6 +10,7 @@
   justify-content: space-between;
   align-items: center;
   z-index: 100;
+  transition: .3s;
 }
 
 .my-portfolio-header a{
@@ -19,6 +20,10 @@
   margin-left: 20px;
   transition: 0.5s;
   font-family: 'Poppins', sans-serif;
+}
+
+.my-portfolio-header.sticky{
+  background: var(--bg-color);
 }
 
 .my-portfolio-header img{
