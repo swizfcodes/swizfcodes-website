@@ -15,12 +15,31 @@
 </head>
 <body>
 
-  <!--- header design -->
+    <!--- header design -->
   <Header class="my-portfolio-header">
     <a href="#" class="portfolio-logo">
       <!--<img src="/swizfcodes-website/photos/My-port-logo.png" alt="Logo"> -->
-      SwizfCodes
+      SwizfCodes <span class="animation" style="--i:1;"></span>
     </a>
+
+      <div class="bx bx-menu" id="menu-icon">
+        <span class="animation" style="--i:2;"></span>
+      </div>
+      <div class="menu-overlay" id="menu-overlay"></div>
+
+    <nav class="portfolio-navbar">
+      <a href="http://swizfcodes.github.io/swizfcodes-website/index.html" class="home-active">HOME</a>
+      <a href="http://swizfcodes.github.io/swizfcodes-website/about.html">ABOUT</a>
+      <a href="http://swizfcodes.github.io/swizfcodes-website/education.html">EDUCATION</a>
+      <a href="http://swizfcodes.github.io/swizfcodes-website/skills.html">SKILLS</a>
+      <a href="http://swizfcodes.github.io/swizfcodes-website/contact.html">CONTACT</a>
+      <a href=""></a>
+
+      <span class="active-nav"></span>
+      <span class="animation" style="--i:2;"></span>
+    </nav>
+  </Header>
+
 
     <nav class="portfolio-navbar">
       <a href="http://swizfcodes.github.io/swizfcodes-website/index.html">HOME</a>
@@ -32,8 +51,10 @@
     </nav>
   </Header>
 
-  <aboutsection>
-      <h2>About <span>Me</span></h2>
+  <aboutsection id="aboutsection"  class="aboutsection show-animation">
+      <h2 class="heading">About <span>Me</span> 
+        <span class="animation scroll" style="--i:2.5;"></span>
+      </h2>
       <div class="about-img">
         <img src="/swizfcodes-website/photos/port-img.png" alt="Elisha Okoh">
         <span class="circle-spin"></span>
@@ -119,4 +140,5 @@
     </div>
   </footer>
 </body>
+<script src="script/index.js"></script>
 </html>

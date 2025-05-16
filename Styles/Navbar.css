@@ -1,3 +1,13 @@
+nav{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-right: 10px;
+  flex: 1;
+  max-width: 490px;
+  position: relative;
+}
+
 .portfolio-navbar a{
   font-size: 15px;
   color: var(--text-color);
@@ -12,9 +22,11 @@
 }
 
 #menu-icon{
-  font-size: 20px;
-  color: var(--text-color);
+  display: none;
   cursor: pointer;
+  color: var(--text-color); 
+  z-index: 1001;
+  position: relative
 }
 
 /* Default desktop layout */
@@ -24,28 +36,84 @@
 }
 
 /* Hide the menu icon by default (desktop) */
-#menu-icon {
+#menu-icon, 
+.menu-overlay {
   display: none;
 }
 
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
 /* Mobile view: stack nav, show menu icon */
 @media screen and (max-width: 768px) {
+   nav {
+    gap: 20px;
+    margin-right: 0;
+    width: 100%;
+  }
+  
   .portfolio-navbar {
+    display: none; /* hide by default */
     position: absolute;
     top: 100%;
-    left: 0;
+    left: -100%;
     width: 100%;
     background: var(--bg-color);
+    flex-direction: column;
     align-items: flex-start;
-    padding: 10px 5%;
-    /* Hide initially */
+    padding: 2%;
+    z-index: 999;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    transform: translateY(100%);
+    transition: all 0.4s ease;
+    box-shadow: 0 -8px 16px rgba(0, 0, 0, 0.1);
+    border-radius: 12px 12px 0 0;
+    transition-delay: 0.3s;
   }
 
+  .menu-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .menu-overlay.active {
+    display: block;
+    opacity: 1;
+  }
+    
+
+
   .portfolio-navbar a {
-    font-size: 12px;
+    display: block;
+    font-size: 1.2rem;
     color: var(--text-color);
     font-weight: 500;
-    margin-left: 20px;
     transition: 0.5s;
   }
 
@@ -53,21 +121,44 @@
     display: block;
   }
 
+  .bx-menu{
+    font-size: 30px;
+    color: var(--text-color);
+  }
+
   /* When menu is active (use JS to add this class) */
-  .portfolio-navbar.active {
-    display: flex;
+ .portfolio-navbar.active {
+   display: flex;
+   animation: fadeInUp 0.4s ease forwards;
+   transition-delay: 0s;
+   left: 0;
+   opacity: 1;
+   transform: translateY(0);
+ }
+
+  .portfolio-navbar a:hover {
+    color: var(--main-color);
+  }
+
+  .portfolio-navbar a.home-active {
+    color: var(--main-color);
   }
 }
 
 @media screen and (max-width: 480px) {
-  .portfolio-navbar {
-    position: absolute;
+
+  
+  nav {
+    gap: 8px;
+  }
+
+   .portfolio-navbar {
+    position: relative;
     top: 100%;
-    left: 0;
-    width: auto;
+    right: 2%;
+    width: 100%;
     background: var(--bg-color);
-    align-items: flex-start;
-    padding: 10px 5%;
+    padding: 10px 2%;
     /* Hide initially */
   }
 
@@ -75,7 +166,6 @@
     font-size: 10px;
     color: var(--text-color);
     font-weight: 500;
-    margin-left: 20px;
     transition: 0.5s;
   }
 

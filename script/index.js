@@ -71,7 +71,7 @@
   }
 
   // Start and stop functions with hover handling
-  function startShuffle() {
+  /*function startShuffle() {
     shuffleInterval = setInterval(shuffleCardsFLIP, 3000);
   }
 
@@ -82,13 +82,15 @@
   grid.addEventListener('mouseenter', stopShuffle);
   grid.addEventListener('mouseleave', startShuffle);
 
-  startShuffle();
+  startShuffle();*/
+
+  
 
   //toogle icon navbar
 
   //scroll sections
   let sections = document.querySelectorAll('section');
-  let navLinks = document.querySelectorAll('my-portfolio-header nav a');
+  let navLinks = document.querySelectorAll('header nav a');
 
   window.onscroll = () => {
     sections.forEach(sec => {
@@ -97,19 +99,61 @@
       let height = sec.offsetHeight;
       let id = sec.getAttribute('id');
 
-      if(top >= offset && top < offset + height){
-        // active navbar links
-        navLinks.forEach(links => {
-          links.classList.remove('active');
-          document.querySelector('my-portfolio-header nav a[href*=' + id+']').classList.add('active')
-        })
+     if (top >= offset && top < offset + height) {
+        // Remove 'active' from all nav links
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+        });
+
+        // Add 'active' to the correct nav link
+        const activeLink = document.querySelector(`header nav a[href*="${CSS.escape(id)}"]`);
+        if (activeLink) {
+          activeLink.classList.add('active');
+        }
       }
     });
+
+    // active sections
+          const sectionObserver = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('show-animation');
+            } else {
+              entry.target.classList.remove('show-animation'); // allow repeat
+            }
+          });
+        });
+
+        document.querySelectorAll(
+          '.home-content, .projects, .projects-grid, .neon-project-card, .blog-div, .blogs-articles-header, .blog-article'
+        ).forEach(section => {
+          sectionObserver.observe(section);
+        });
+
+   
+
 
     // sticky header
     let header = document.querySelector('my-portfolio-header')
 
     header.classList.toggle('sticky', window.scrollY > 100);
   }
+
+   const menuIcon = document.querySelector("#menu-icon");
+   const navbar = document.querySelector(".portfolio-navbar");
+   const overlay = document.getElementById(".menu-overlay");
+
+   menuIcon.onclick = () => {
+     menuIcon.classList.toggle("bx-x");
+     navbar.classList.toggle("active");
+     overlay.classList.toggle("active");
+   }
+
+    overlay.addEventListener("click", () => {
+    navbar.classList.remove("active");
+    overlay.classList.remove("active");
+  });
+
+
 
   
